@@ -8,7 +8,7 @@ expect.extend(expectJSX);
 describe('cool component', () => {
     it('should get the cool component', () => {
         var renderer = TestUntils.createRenderer();
-        renderer.render(<CoolComponent name="cool-component"/>);
+        renderer.render(<CoolComponent isActive={true} />);
 
         var output = renderer.getRenderOutput();
         const expected =<p>this is coolComponent!</p>;
@@ -21,8 +21,25 @@ describe('cool component', () => {
         ]);
 
         expect(output.type).toEqual('div');
+    });
 
+    it('should get the cool component', () => {
+        var renderer = TestUntils.createRenderer();
+        renderer.render(<CoolComponent isActive={false} />);
+
+        var output = renderer.getRenderOutput();
         var className = output.props.className;
+
         expect(className).toEqual('cool-component');
+    });
+
+    it('should get the cool component', () => {
+        var renderer = TestUntils.createRenderer();
+        renderer.render(<CoolComponent isActive={true} />);
+
+        var output = renderer.getRenderOutput();
+        var className = output.props.className;
+
+        expect(className).toEqual('cool-component cool-component-active');
     });
 });
