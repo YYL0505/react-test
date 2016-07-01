@@ -14,5 +14,10 @@ describe('cool component', () => {
         const expected =<p>this is coolComponent!</p>;
 
         expect(output).toIncludeJSX(expected);
+
+        expect(output.props.children).toEqual([
+            <h1>hello</h1>,
+            <p>this is coolComponent!</p>
+        ]);
     });
 });
