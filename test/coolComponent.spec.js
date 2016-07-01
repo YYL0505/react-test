@@ -8,7 +8,7 @@ expect.extend(expectJSX);
 describe('cool component', () => {
     it('should get the cool component', () => {
         var renderer = TestUntils.createRenderer();
-        renderer.render(<CoolComponent />);
+        renderer.render(<CoolComponent name="cool-component"/>);
 
         var output = renderer.getRenderOutput();
         const expected =<p>this is coolComponent!</p>;
@@ -21,5 +21,8 @@ describe('cool component', () => {
         ]);
 
         expect(output.type).toEqual('div');
+
+        var className = output.props.className;
+        expect(className).toEqual('cool-component');
     });
 });
