@@ -19,5 +19,7 @@ describe('cool component', () => {
             <h1>hello</h1>,
             <p>this is coolComponent!</p>
         ]);
+
+        expect(output.type).toEqual('div');
     });
 });
