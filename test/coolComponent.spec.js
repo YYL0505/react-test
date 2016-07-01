@@ -1,7 +1,9 @@
 import React from 'react'
 import expect from 'expect';
+import expectJSX from 'expect-jsx';
 import TestUntils from 'react-addons-test-utils';
 import CoolComponent from '../component/CoolComponent';
+expect.extend(expectJSX);
 
 describe('cool component', () => {
     it('should get the cool component', () => {
@@ -9,7 +11,8 @@ describe('cool component', () => {
         renderer.render(<CoolComponent />);
 
         var output = renderer.getRenderOutput();
+        const expected =<p>this is coolComponent!</p>;
 
-        console.log(output);
+        expect(output).toIncludeJSX(expected);
     });
 });
